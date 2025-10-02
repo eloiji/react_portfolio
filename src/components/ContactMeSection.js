@@ -56,11 +56,15 @@ const LandingSection = () => {
       py={16}
       spacing={8}
     >
-      <VStack w="1024px" p={32} alignItems="flex-start">
+      <VStack
+        w={{ base: "100%", sm: "90vw", md: "90vw", lg: "1024px" }}
+        p={{ base: "8", sm: "8", md: "16", lg: "32" }}
+        alignItems="flex-start"
+      >
         <Heading as="h1" id="contactme-section">
           Contact me
         </Heading>
-        <Box p={6} rounded="md" w="100%">
+        <Box p={4} rounded="md" w="100%">
           <form onReset={formik.handleReset} onSubmit={formik.handleSubmit}>
             <VStack spacing={4}>
               <FormControl

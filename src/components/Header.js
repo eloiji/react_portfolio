@@ -7,7 +7,7 @@ import {
   faMedium,
   faStackOverflow,
 } from "@fortawesome/free-brands-svg-icons";
-import { Box, HStack } from "@chakra-ui/react";
+import { Box, HStack, Icon } from "@chakra-ui/react";
 
 const socials = [
   {
@@ -81,18 +81,18 @@ const Header = () => {
       transitionTimingFunction="ease-in-out"
       backgroundColor="#18181b"
       zIndex={10}
-      ref={headerRef} 
+      ref={headerRef}
     >
       <Box color="white" maxWidth="1280px" margin="0 auto">
         <HStack
-          px={16}
-          py={4}
+          px={{ base: 4, md: 8, lg: 16 }}
+          py={{ base: 4, md: 6 }}
           justifyContent="space-between"
           alignItems="center"
         >
           <nav>
             {/* Add social media links based on the `socials` data */}
-            <HStack spacing={8}>
+            <HStack spacing={{ base: 2, sm: 4, lg: 8 }}>
               {socials.map((social) => {
                 return (
                   <a
@@ -101,17 +101,21 @@ const Header = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <FontAwesomeIcon
+                    <Icon
+                      as={FontAwesomeIcon}
                       icon={social.icon}
-                      size="2x"
-                    ></FontAwesomeIcon>
+                      boxSize={{ base: 6, md: 10 }}
+                    />
                   </a>
                 );
               })}
             </HStack>
           </nav>
           <nav>
-            <HStack spacing={8}>
+            <HStack
+              spacing={{ base: 4, md: 6 }}
+              fontSize={{ base: "sm", md: "xl" }}
+            >
               {/* Add links to Projects and Contact me section */}
               <a onClick={handleClick("projects")}>Projects</a>
               <a onClick={handleClick("contactme")}>Contact Me</a>
